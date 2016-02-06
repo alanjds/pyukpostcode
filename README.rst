@@ -27,26 +27,6 @@ Overview
     :alt: Coverage Status
     :target: https://coveralls.io/r/alanjds/pyukpostcode
 
-.. |version| image:: https://img.shields.io/pypi/v/nameless.svg?style=flat
-    :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/nameless
-
-.. |downloads| image:: https://img.shields.io/pypi/dm/nameless.svg?style=flat
-    :alt: PyPI Package monthly downloads
-    :target: https://pypi.python.org/pypi/nameless
-
-.. |wheel| image:: https://img.shields.io/pypi/wheel/nameless.svg?style=flat
-    :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/nameless
-
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/nameless.svg?style=flat
-    :alt: Supported versions
-    :target: https://pypi.python.org/pypi/nameless
-
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/nameless.svg?style=flat
-    :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/nameless
-
 
 .. end-badges
 
@@ -59,7 +39,7 @@ Installation
 
 ::
 
-    pip install nameless
+    pip install pyukpostcode
 
 Documentation
 =============
