@@ -12,7 +12,7 @@ PYTEST_ARGS = {
     'fast': ['tests', '-q', '--cov=ukpostcode'],
 }
 
-FLAKE8_ARGS = ['ukpostcode', 'tests', '--ignore=E501']
+FLAKE8_ARGS = ['ukpostcode', 'tests', '--ignore=E501', '--ignore=E262', '--max-line-length=120']
 
 
 sys.path.append(os.path.dirname(__file__))
