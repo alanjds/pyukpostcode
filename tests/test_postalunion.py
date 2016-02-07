@@ -21,6 +21,11 @@ def test_address_formats():
     assert validate('EC1A 1HQ ') is True    # AANA NAA
 
 
+# Should do online calls to check this one. Should I?
+# def test_fake_address():
+#     assert validate('W1A 4ZZ') is False     # ANA NAA but fails @ postcodes.io
+
+
 def test_gir_exceptions():
     assert validate('GIR 0AA') is True      # GIR outward is valid
     assert validate('GIR ABC') is False     # but inward rules still apply

@@ -15,10 +15,11 @@
 # limitations under the License.
 
 from __future__ import unicode_literals
-__version__ = '0.1.0'
 
 import re
 
+
+__version__ = '0.1.0'
 
 NOT_QVZ = '[A-PR-UWXY]'
 NOT_IJZ = '[A-HK-Y]'
