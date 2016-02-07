@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # Copyright 2013 Alan Justino da Silva, Oscar Vilaplana, et. al.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,4 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import unicode_literals
+
+
 __version__ = '0.1.0'
+
+
+def formater(postcode):
+    postcode = postcode.upper()
+    inward = postcode[-3:]
+    outward = postcode[:-3]
+    return '%s %s' % (outward, inward)
