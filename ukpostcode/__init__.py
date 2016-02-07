@@ -28,3 +28,10 @@ def formater(postcode):
     inward = postcode[-3:]
     outward = postcode[:-3]
     return '%s %s' % (outward, inward)
+
+
+def validate(postcode):
+    '''
+    Returns True if the postcode is valid. False otherwise.
+    '''
+    raise NotImplementedError()
