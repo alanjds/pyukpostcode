@@ -21,7 +21,10 @@ __version__ = '0.1.0'
 
 
 def formater(postcode):
-    postcode = postcode.upper()
+    '''
+    Format a UK Post Code to the official form. Expects a valid postcode.
+    '''
+    postcode = postcode.upper().replace(' ', '').strip()
     inward = postcode[-3:]
     outward = postcode[:-3]
     return '%s %s' % (outward, inward)
