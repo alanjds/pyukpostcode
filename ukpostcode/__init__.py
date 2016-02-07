@@ -33,5 +33,11 @@ def formater(postcode):
 def validate(postcode):
     '''
     Returns True if the postcode is valid. False otherwise.
+    Validate against the rules found here:
+    http://www.upu.int/fileadmin/documentsFiles/activities/addressingUnit/gbrEn.pdf
     '''
+    outward, inward = formater(postcode).split(' ')
+    if len(outward) < 2 or len(outward) > 4:
+        return False
+
     raise NotImplementedError()
