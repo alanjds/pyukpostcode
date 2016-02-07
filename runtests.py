@@ -8,8 +8,8 @@ import subprocess
 
 
 PYTEST_ARGS = {
-    'default': ['tests'],
-    'fast': ['tests', '-q'],
+    'default': ['tests', '--cov=ukpostcode'],
+    'fast': ['tests', '-q', '--cov=ukpostcode'],
 }
 
 FLAKE8_ARGS = ['ukpostcode', 'tests', '--ignore=E501']

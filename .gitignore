@@ -16,6 +16,7 @@ pip-log.txt
 # Unit test / coverage
 .coverage
 .coverage_html
+htmlcov
 .tox
 
 # Mac OS X
