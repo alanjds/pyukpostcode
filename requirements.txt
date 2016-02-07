@@ -1,0 +1,6 @@
+# TOX requirements
+-r requirements-tox.txt
+
+# Test requirements
+pytest==2.7.0
+flake8==2.5.2
