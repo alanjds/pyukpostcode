@@ -27,6 +27,12 @@ NOT_HJKSTUW = '[A-GIL-RVXYZ]'
 ONE_TWO_DIGITS = r'\d\d?'
 ONE_DIGIT = r'\d'
 
+SPECIAL_OUTWARDS = [
+    'ASCN', 'STHL', 'TDCU', 'BBND', 'BIQQ',
+    'FIQQ', 'GX11', 'PCRN', 'SIQQ', 'TKCA',
+    'BFPO', 'ZZ99', 'SA99',
+]
+
 
 def formater(postcode):
     '''
@@ -50,16 +56,22 @@ def validate(postcode):
     if len(outward) < 2 or len(outward) > 4:
         return False
 
-    # Special case
-    if outward == 'GIR' and inward == '0AA':
-        return True
-
     # Inward checked first, as is only one case
     match = re.match(r'\d[A-Z][A-Z]', inward)
     if not match or inward != match.group():
+        if outward == 'ZZ99':   # this can have non-standard inwards
+            return True
         return False
 
     # Inward is ok. Start to check outward...
+
+    # Special cases
+    if outward in SPECIAL_OUTWARDS:
+        return True
+
+    if outward == 'GIR' and inward == '0AA':
+        return True
+
     # Outward regex based on:
     # http://webarchive.nationalarchives.gov.uk/+/http://www.cabinetoffice.gov.uk/media/291370/bs7666-v2-0-xsd-PostCodeType.htm
 
