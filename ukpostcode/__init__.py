@@ -15,10 +15,16 @@
 # limitations under the License.
 
 from __future__ import unicode_literals
+__version__ = '0.1.0'
 
 import re
 
-__version__ = '0.1.0'
+
+NOT_QVZ = '[A-PR-UWXY]'
+NOT_IJZ = '[A-HK-Y]'
+NOT_HJKSTUW = '[A-GIL-RVXYZ]'
+ONE_TWO_DIGITS = r'\d\d?'
+ONE_DIGIT = r'\d'
 
 
 def formater(postcode):
@@ -36,10 +42,16 @@ def validate(postcode):
     Returns True if the postcode is valid. False otherwise.
     Validate against the rules found here:
     http://www.upu.int/fileadmin/documentsFiles/activities/addressingUnit/gbrEn.pdf
+    and here:
+    https://en.wikipedia.org/wiki/Postcodes_in_the_United_Kingdom#Formatting
     '''
     outward, inward = formater(postcode).split(' ')
     if len(outward) < 2 or len(outward) > 4:
         return False
+
+    # Special case
+    if outward == 'GIR' and inward == '0AA':
+        return True
 
     # Inward checked first, as is only one case
     match = re.match(r'\d[A-Z][A-Z]', inward)
@@ -47,6 +59,19 @@ def validate(postcode):
         return False
 
     # Inward is ok. Start to check outward...
-    if outward == 'GIR':
+    # Outward regex based on:
+    # http://webarchive.nationalarchives.gov.uk/+/http://www.cabinetoffice.gov.uk/media/291370/bs7666-v2-0-xsd-PostCodeType.htm
+
+    outward_regexes = [
+        NOT_QVZ + ONE_DIGIT + NOT_HJKSTUW,
+        NOT_QVZ + NOT_IJZ + ONE_DIGIT + '[ABEHMNPRVWXY]',
+        NOT_QVZ + NOT_IJZ + ONE_TWO_DIGITS,
+        NOT_QVZ + ONE_TWO_DIGITS,
+    ]
+    outward_regex = '(' + ')|('.join(outward_regexes) + ')'
+
+    match = re.match(outward_regex, outward)
+    if match and outward == match.group():
         return True
-    raise NotImplementedError()
+
+    return False
