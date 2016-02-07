@@ -23,3 +23,5 @@ def test_address_formats():
 
 def test_gir_exceptions():
     assert validate('GIR 0AA') is True      # GIR outward is valid
+    assert validate('GIR ABC') is False     # but inward rules still apply
+    assert validate('GIR 123') is False

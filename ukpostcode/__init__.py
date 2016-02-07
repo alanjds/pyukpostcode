@@ -16,6 +16,7 @@
 
 from __future__ import unicode_literals
 
+import re
 
 __version__ = '0.1.0'
 
@@ -40,4 +41,12 @@ def validate(postcode):
     if len(outward) < 2 or len(outward) > 4:
         return False
 
+    # Inward checked first, as is only one case
+    match = re.match(r'\d[A-Z][A-Z]', inward)
+    if not match or inward != match.group():
+        return False
+
+    # Inward is ok. Start to check outward...
+    if outward == 'GIR':
+        return True
     raise NotImplementedError()
