@@ -25,7 +25,7 @@ returns a formated string.
 When ``validate`` is used the ``formater`` is applied automatically.
 ``validate`` operates over a string:
 
-    >>> from pyukpostcode import validate
+    >>> from ukpostcode import validate
     >>> validate('gir 0aa')
     True
 
