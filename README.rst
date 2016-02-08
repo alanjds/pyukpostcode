@@ -34,7 +34,7 @@ Testing
 
 ::
 
-    pip install tox
+    pip install tox flake8
     tox
 
 Tox will test the library for Python 2.7 and 3.4. A coverage report will be
