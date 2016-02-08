@@ -22,7 +22,7 @@ returns a formated string.
     >>> formater('G i R 0 A a')
     'GIR 0AA'
 
-Ther ``formater`` is applied automatically when ``validate`` is used.
+The ``formater`` is applied automatically when ``validate`` is used.
 
     >>> from pyukpostcode import validate
     >>> validate('gir 0aa')
