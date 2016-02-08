@@ -7,9 +7,9 @@ A verifier and a formater for UK post codes
 Installation
 ============
 
-::
+As it is not on PyPI yet, you can install this via the Github repository tarball::
 
-    pip install pyukpostcode
+    pip install https://github.com/alanjds/pyukpostcode/archive/master.zip
 
 
 Usage
