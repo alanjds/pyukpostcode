@@ -15,7 +15,7 @@ As it is not on PyPI yet, you can install this via the Github repository tarball
 Usage
 =====
 
-The ``formater`` receiver a string, assumes that it is a valid UK post code and
+The ``formater`` receives a string, assumes that it is a valid UK post code and
 returns a formated string.
 
     >>> from ukpostcode import formater
