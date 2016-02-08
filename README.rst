@@ -1,5 +1,6 @@
+============
 pyukpostcode
-======================================
+============
 
 A verifier and a formater for UK post codes
 
